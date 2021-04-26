@@ -59,6 +59,8 @@ def adjacentElementsProduct(inputArray):
     return largest_product
 
 """
+## shapeArea
+
 Below we will define an n-interesting polygon. Your task is to 
 find the area of a polygon for a given n.
 
@@ -72,7 +74,15 @@ def shapeArea(n):
     return n*n + ((n-1)*(n-1))
     
 """
-Ratiorg got statues of different sizes as a present from CodeMaster for his birthday, each statue having an non-negative integer size. Since he likes to make things perfect, he wants to arrange them from smallest to largest so that each statue will be bigger than the previous one exactly by 1. He may need some additional statues to be able to accomplish that. Help him figure out the minimum number of additional statues needed.
+## makeArrayConsecutive2
+
+Ratiorg got statues of different sizes as a present from CodeMaster 
+for his birthday, each statue having an non-negative integer size. 
+Since he likes to make things perfect, he wants to arrange them from 
+smallest to largest so that each statue will be bigger than the 
+previous one exactly by 1. He may need some additional statues to be 
+able to accomplish that. Help him figure out the minimum number of 
+additional statues needed.
 
 Example
 
@@ -88,3 +98,43 @@ def makeArrayConsecutive2(statues):
     for i in range(len(in_order)-1):
         count += in_order[i+1]-in_order[i]-1
     return count
+
+"""
+## almostIncreasingSequence
+
+    Given a sequence of integers as an array, determine whether it 
+    is possible to obtain a strictly increasing sequence by removing 
+    no more than one element from the array.
+
+Note: sequence a0, a1, ..., an is considered to be a strictly 
+increasing if a0 < a1 < ... < an. Sequence containing only one element 
+is also considered to be strictly increasing.
+
+Example
+
+For sequence = [1, 3, 2, 1], the output should be
+almostIncreasingSequence(sequence) = false.
+
+There is no one element in this array that can be removed in order to 
+get a strictly increasing sequence.
+
+For sequence = [1, 3, 2], the output should be
+almostIncreasingSequence(sequence) = true.
+
+You can remove 3 from the array to get the strictly increasing sequence 
+[1, 2]. Alternately, you can remove 2 to get the strictly increasing 
+sequence [1, 3].
+"""
+def almostIncreasingSequence(sequence):
+    fails1 = 0
+    fails2 = 0
+    
+    for i in range(len(sequence)-1):
+            if sequence[i] >= sequence[i+1]:
+                fails1 += 1
+                
+    for i in range(len(sequence)-2):
+            if sequence[i] >= sequence[i+2]:
+                fails2 += 1
+                
+    return (fails1 < 2) and (fails2 < 2)
