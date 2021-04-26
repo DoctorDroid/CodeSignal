@@ -159,9 +159,9 @@ matrixElementsSum(matrix) = 9.
 
 def matrixElementsSum(matrix):
     result = 0
-    for i in range(len(matrix)):
-        for j in range(len(matrix[i])):
-            if matrix[i][j] == 0 and i+1 < len(matrix):
-                matrix[i+1][j] = 0
-            result += matrix[i][j]
+    for row in range(len(matrix)):
+        for col in range(len(matrix[row])):
+            if matrix[row][col] == 0 and row+1 < len(matrix):
+                matrix[row+1][col] = 0
+            result += matrix[row][col]
     return result
