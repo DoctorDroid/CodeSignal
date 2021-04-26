@@ -34,8 +34,9 @@ def checkPalindrome(inputString):
     return inputString == inputString[::-1]
 
     """
-    using string slicing this checks to see if the string is the same from beggining to end as it is
-    from end to beggining.
+    using string slicing this checks to see if the string is 
+    the same from beginning to end as it is from end to 
+    beginning.
     """
 
 """ 
@@ -66,8 +67,8 @@ find the area of a polygon for a given n.
 
 A 1-interesting polygon is just a square with a side of length 
 1. An n-interesting polygon is obtained by taking the n - 1-
-interesting polygon and appending 1-interesting polygons to its rim,
- side by side. 
+interesting polygon and appending 1-interesting polygons to 
+its rim, side by side. 
 """
 
 def shapeArea(n):
@@ -102,28 +103,29 @@ def makeArrayConsecutive2(statues):
 """
 ## almostIncreasingSequence
 
-    Given a sequence of integers as an array, determine whether it 
-    is possible to obtain a strictly increasing sequence by removing 
-    no more than one element from the array.
+    Given a sequence of integers as an array, determine 
+    whether it is possible to obtain a strictly increasing 
+    sequence by removing no more than one element from the 
+    array.
 
 Note: sequence a0, a1, ..., an is considered to be a strictly 
-increasing if a0 < a1 < ... < an. Sequence containing only one element 
-is also considered to be strictly increasing.
+increasing if a0 < a1 < ... < an. Sequence containing only one 
+element is also considered to be strictly increasing.
 
 Example
 
 For sequence = [1, 3, 2, 1], the output should be
 almostIncreasingSequence(sequence) = false.
 
-There is no one element in this array that can be removed in order to 
-get a strictly increasing sequence.
+There is no one element in this array that can be removed in 
+order to get a strictly increasing sequence.
 
 For sequence = [1, 3, 2], the output should be
 almostIncreasingSequence(sequence) = true.
 
-You can remove 3 from the array to get the strictly increasing sequence 
-[1, 2]. Alternately, you can remove 2 to get the strictly increasing 
-sequence [1, 3].
+You can remove 3 from the array to get the strictly increasing 
+sequence [1, 2]. Alternately, you can remove 2 to get the 
+strictly increasing sequence [1, 3].
 """
 def almostIncreasingSequence(sequence):
     fails1 = 0
@@ -142,9 +144,17 @@ def almostIncreasingSequence(sequence):
 """
 ## matrixElementsSum
 
-After becoming famous, the CodeBots decided to move into a new building together. Each of the rooms has a different cost, and some of them are free, but there's a rumour that all the free rooms are haunted! Since the CodeBots are quite superstitious, they refuse to stay in any of the free rooms, or any of the rooms below any of the free rooms.
+After becoming famous, the CodeBots decided to move into a new 
+building together. Each of the rooms has a different cost, and 
+some of them are free, but there's a rumour that all the free 
+rooms are haunted! Since the CodeBots are quite superstitious, 
+they refuse to stay in any of the free rooms, or any of the 
+rooms below any of the free rooms.
 
-Given matrix, a rectangular matrix of integers, where each value represents the cost of the room, your task is to return the total sum of all rooms that are suitable for the CodeBots (ie: add up all the values that don't appear below a 0).
+Given matrix, a rectangular matrix of integers, where each 
+value represents the cost of the room, your task is to return 
+the total sum of all rooms that are suitable for the CodeBots 
+(ie: add up all the values that don't appear below a 0).
 
 Example
 
