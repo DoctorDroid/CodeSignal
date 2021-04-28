@@ -175,3 +175,23 @@ def matrixElementsSum(matrix):
                 matrix[row+1][col] = 0
             result += matrix[row][col]
     return result
+
+"""
+Given an array of strings, return another array containing all of its longest strings.
+
+Example
+
+For inputArray = ["aba", "aa", "ad", "vcd", "aba"], the output should be
+allLongestStrings(inputArray) = ["aba", "vcd", "aba"].
+"""
+
+def allLongestStrings(inputArray):
+    longest = 0
+    results = []
+    for i in inputArray:
+        if len(i) > longest:
+            longest = len(i)
+    for i in inputArray:
+        if len(i) == longest:
+            results.append(i)
+    return results
