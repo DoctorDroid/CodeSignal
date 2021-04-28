@@ -195,3 +195,23 @@ def allLongestStrings(inputArray):
         if len(i) == longest:
             results.append(i)
     return results
+
+"""
+## commonCharacterCount
+
+Given two strings, find the number of common characters between them.
+
+Example
+
+For s1 = "aabcc" and s2 = "adcaa", the output should be
+commonCharacterCount(s1, s2) = 3.
+
+Strings have 3 common characters - 2 "a"s and 1 "c".
+
+"""
+def commonCharacterCount(s1, s2):
+    result = 0
+    for i in set(s1):
+        if i in s2:
+            result += min(s1.count(i), s2.count(i))
+    return result
