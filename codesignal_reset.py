@@ -234,3 +234,30 @@ def isLucky(n):
     s = str(n)
     l = [int(x) for x in s] 
     return sum(l[:(len(l)//2)]) == sum(l[(len(l)//2):])
+""" 
+Some people are standing in a row in a park. There are trees between them which cannot be moved. Your task is to rearrange the people by their heights in a non-descending order without moving the trees. People can be very tall!
+
+Example
+
+For a = [-1, 150, 190, 170, -1, -1, 160, 180], the output should be
+sortByHeight(a) = [-1, 150, 160, 170, -1, -1, 180, 190].
+
+
+"""
+
+
+def sortByHeight(a):
+    s = sorted(a)
+    print(f"{s=}")
+    for i in range(len(a)):
+        if a[i] == -1:
+            continue
+        else:
+            for j in range(len(s)):
+                if s[j] == -1:
+                    continue
+                else:
+                    a[i] = s[j]
+    return a
+
+sortByHeight([-1, 150, 190, 170, -1, -1, 160, 180])
