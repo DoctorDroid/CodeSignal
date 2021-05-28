@@ -10,21 +10,17 @@ For inputArray = [1, 1, 1], the output should be
 arrayChange(inputArray) = 3. 
 
 """
-]
-def checkArray(arr):
-    for i in range(len(arr)):
-        if arr[i]<=arr[i+1]:
-            return False
-    return True
-    
-def arrayChange(inputArray):
-    moves = 0
-    i = 0
-    while checkArray(inputArray) is False:
-        i +=1
-        while i < len(inputArray)-1:
-            while inputArray[i]>=inputArray[i+1]:
-                inputArray[i+1] +=1
-                moves +=1
-    return moves
 
+def arrayChange(inputArray):
+    #Compare x[i] to x[i+1].  
+    #If x[i] < x[i+1], pass.
+    #Else, find the difference x[i]+1-x[i+1].  Add this 
+    #difference to total and then set x[i+1] to x[i]+1
+    x, total = inputArray, 0
+    for i in range(len(x)-1):
+        a,b = x[i], x[i+1]
+        if a >= b:
+            total += a + 1 - b
+            x[i+1] = a + 1
+    return total
+    
