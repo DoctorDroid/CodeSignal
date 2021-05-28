@@ -23,4 +23,28 @@ def arrayChange(inputArray):
             total += a + 1 - b
             x[i+1] = a + 1
     return total
-    
+
+"""Given a string, find out if its characters can be rearranged to form a palindrome.
+
+Example
+
+For inputString = "aabb", the output should be
+palindromeRearranging(inputString) = true.
+
+We can rearrange "aabb" to make "abba", which is a palindrome.
+"""
+
+
+def palindromeRearranging(inputString):
+    first = 0
+    for letter in set(inputString):
+        if (inputString.count(letter) % 2 != 0):
+            
+            if len(inputString) % 2 == 1:
+                if first:
+                    return False
+                else:    
+                    first += 1
+            else:
+                return False
+    return True
