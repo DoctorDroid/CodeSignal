@@ -24,7 +24,10 @@ def arrayChange(inputArray):
             x[i+1] = a + 1
     return total
 
-"""Given a string, find out if its characters can be rearranged to form a palindrome.
+"""
+## palindromeRearranging
+
+Given a string, find out if its characters can be rearranged to form a palindrome.
 
 Example
 
@@ -36,10 +39,13 @@ We can rearrange "aabb" to make "abba", which is a palindrome.
 
 
 def palindromeRearranging(inputString):
+
+    # count the number of each individual character
+    # can form a palindrome only if:
+    #   at most one of the character counts is odd, all others must be even
     first = 0
     for letter in set(inputString):
         if (inputString.count(letter) % 2 != 0):
-            
             if len(inputString) % 2 == 1:
                 if first:
                     return False
@@ -48,3 +54,42 @@ def palindromeRearranging(inputString):
             else:
                 return False
     return True
+
+""" 
+Call two arms equally strong if the heaviest weights they each are able to lift are equal.
+
+Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.
+
+Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
+
+Example
+
+For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
+areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
+"""
+def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
+    if ((yourLeft == friendsLeft) and (yourRight == friendsRight)) or ((yourLeft == friendsRight) and (yourRight == friendsLeft)):
+        return True
+    return False
+
+""" 
+
+## arrayMaximalAdjacentDifference
+
+Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
+
+Example
+
+For inputArray = [2, 4, 1, 0], the output should be
+arrayMaximalAdjacentDifference(inputArray) = 3.
+"""
+def arrayMaximalAdjacentDifference(inputArray):
+    maxi = 0
+    for i in range(1, len(inputArray)):
+         if abs(inputArray[i] - inputArray[i-1]) > maxi:
+             maxi = abs(inputArray[i] - inputArray[i-1])
+    return maxi
