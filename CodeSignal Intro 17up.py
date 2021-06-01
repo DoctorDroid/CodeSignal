@@ -270,3 +270,28 @@ evenDigitsOnly(n) = false.
 def evenDigitsOnly(n):
     s = str(n)
     return all([int(i) % 2 == 0 for i in s])
+
+    """variableName
+
+    Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
+
+Check if the given string is a correct variable name.
+
+Example
+
+For name = "var_1__Int", the output should be
+variableName(name) = true;
+For name = "qq-q", the output should be
+variableName(name) = false;
+For name = "2w2", the output should be
+variableName(name) = false.
+    """
+import string
+def variableName(name):
+    # return name.isidentifier()
+    if name[0] in ['0','1','2','3','4','5','6','7','8','9']:
+        return False
+    if name.replace('_', '0').isalnum() == False:
+        return False
+    return True
+    
