@@ -229,10 +229,10 @@ minesweeper(matrix) = [[1, 2, 1],
 """
 
 def minesweeper(M):
-    A =[[0]*(len(M[0])+2)] + [[0]+x+[0] for x in M] + [[0]*(len(M[0])+2)]
+    A =[[0]*(len(M[0])+2)] + [[0]+x+[0] for x in M] + [[0]*(len(M[0])+2)] #creates padding of zeros 
     for i in range(len(M)):
         for j in range(len(M[0])):
-            M[i][j] = (A[i+0][j] + A[i+0][j+1] + A[i+0][j+2] +
-                       A[i+1][j] +      0      + A[i+1][j+2] +
-                       A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] )
+            M[i][j] = (A[i+0][j] + A[i+0][j+1] + A[i+0][j+2] + # replaces each cell in M with number
+                       A[i+1][j] +      0      + A[i+1][j+2] + # of neighboring mines (without index
+                       A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] ) # going out of range)
     return M
