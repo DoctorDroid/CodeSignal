@@ -236,3 +236,22 @@ def minesweeper(M):
                        A[i+1][j] +      0      + A[i+1][j+2] + # of neighboring mines (without index
                        A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] ) # going out of range)
     return M
+
+"""
+
+## arrayReplace
+
+Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+
+Example
+
+For inputArray = [1, 2, 1], elemToReplace = 1, and substitutionElem = 3, the output should be
+arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3].
+
+"""
+
+def arrayReplace(inputArray, elemToReplace, substitutionElem):
+    for i in range(len(inputArray)):
+        if inputArray[i] == elemToReplace:
+            inputArray[i] = substitutionElem
+    return inputArray
