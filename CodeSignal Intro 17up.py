@@ -165,7 +165,6 @@ def avoidObstacles(inputArray):
 """ 
 
 ## boxBlur
-
 Last night you partied a little too hard. Now there's a black and white photo of you that's about to go viral! You can't let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.
 
 The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel x in the output image has a value equal to the average value of the pixel values from the 3 × 3 square that has its center at x, including x itself. All the pixels on the border of x are then removed.
@@ -208,3 +207,32 @@ def boxBlur(image):
         for j in range(len(image[0])-2):
             result[i].append(sum(image[i][j:j+3] + image[i+1][j:j+3] + image[i+2][j:j+3])/9//1)
     return result
+
+"""
+
+## minesweeper
+
+    In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+
+Example
+
+For
+
+matrix = [[true, false, false],
+          [false, true, false],
+          [false, false, false]]
+the output should be
+
+minesweeper(matrix) = [[1, 2, 1],
+                       [2, 1, 1],
+                       [1, 1, 1]]
+"""
+
+def minesweeper(M):
+    A =[[0]*(len(M[0])+2)] + [[0]+x+[0] for x in M] + [[0]*(len(M[0])+2)]
+    for i in range(len(M)):
+        for j in range(len(M[0])):
+            M[i][j] = (A[i+0][j] + A[i+0][j+1] + A[i+0][j+2] +
+                       A[i+1][j] +      0      + A[i+1][j+2] +
+                       A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] )
+    return M
