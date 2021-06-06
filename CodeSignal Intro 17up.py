@@ -388,3 +388,13 @@ def absoluteValuesSumMinimization(a):
     for j in range(len(sums)):              # find min sum
         if sums[j] == min(sums):
             return a[j]          # return element at matching index
+
+
+""" 
+fewer lines, less readable
+"""
+def absoluteValuesSumMinimization(a):
+    sums = []
+    for x in a:
+        sums.append(sum([abs(x - c) for c in a])) # list of sums 
+    return a[sums.index(min(sums))]
