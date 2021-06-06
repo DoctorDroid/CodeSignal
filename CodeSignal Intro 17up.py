@@ -382,9 +382,9 @@ def absoluteValuesSumMinimization(a):
     lst = []
     sums = []
     for x in a:
-        lst.append([abs(x - c) for c in a])
+        lst.append([abs(x - c) for c in a]) # list of lists of abs
     for i in range(len(lst)):
-        sums.append(sum(lst[i]))
-    for j in range(len(sums)):
+        sums.append(sum(lst[i]))            # list of sums
+    for j in range(len(sums)):              # find min sum
         if sums[j] == min(sums):
-            return a[j] 
+            return a[j]          # return element at matching index
