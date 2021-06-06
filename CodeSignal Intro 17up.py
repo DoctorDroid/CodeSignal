@@ -419,3 +419,8 @@ def extractEachKth(inputArray, k):
         if i < len(inputArray):
             del inputArray[i]
     return inputArray
+
+""" what I tried first but with improper syntax """
+def extractEachKth(inputArray, k):
+    del inputArray[k-1::k]
+    return inputArray
