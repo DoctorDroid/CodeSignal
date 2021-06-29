@@ -518,6 +518,25 @@ digitDegree(n) = 2.
 def digitDegree(n):
     count = 0
     while n > 9:
-        n = sum([int(digit) for digit in (str(n))])
-        count += 1
-    return count
+        n = sum([int(digit) for digit in (str(n))]) #simple casting would not work here
+        count += 1                                  #without an additional loop. list comp
+    return count                                    #instead.
+
+
+""" 
+*
+Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+
+Example
+
+For st = "abcdc", the output should be
+buildPalindrome(st) = "abcdcba".
+"""
+
+def buildPalindrome(st):
+    end = ""
+    i = 0
+    while st + end != (st + end)[::-1]:
+        end = st[i] + end
+        i+=1
+    return st + end
