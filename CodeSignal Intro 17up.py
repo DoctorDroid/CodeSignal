@@ -424,3 +424,19 @@ def extractEachKth(inputArray, k):
 def extractEachKth(inputArray, k):
     del inputArray[k-1::k]
     return inputArray
+
+""" 
+Example
+
+For inputString = "var_1__Int", the output should be
+firstDigit(inputString) = '1';
+For inputString = "q2q-q", the output should be
+firstDigit(inputString) = '2';
+For inputString = "0ss", the output should be
+firstDigit(inputString) = '0'.
+"""
+
+def firstDigit(inputString):
+    for i in inputString:
+        if '0' <= i <= '9':
+            return i
