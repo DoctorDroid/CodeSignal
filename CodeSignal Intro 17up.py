@@ -540,3 +540,54 @@ def buildPalindrome(st):
         end = st[i] + end
         i+=1
     return st + end
+
+import string
+def isMAC48Address(inputString):
+    lis = inputString.split('-')
+    if len(lis) != 6:
+        return False
+    print(lis)
+    h = 0
+    for elem in lis:
+        for i in range(len(elem)):
+            if elem[i].isdigit() or (elem[i] >= 'A' and elem[i] <= 'F'):
+                h += 1
+    return h == 12 
+
+"""
+only coide that passes the last hidden test without using regular expressions. 
+still unsure why.
+
+"""
+    # if inputString.count("-")!=5:
+    #     return False
+    # for i in inputString.split("-"):
+    #     for j in i:
+    #         if j>"F" or (j<"A" and not j.isdigit()) or len(i)!=2:
+    #             return False
+    # return True 
+"""
+passes all sample and 19/20 hidden
+"""
+    
+    # lst = inputString.split('-')
+    # if len(lst) != 6:
+    #     return False
+    # for each in lst:
+    #     if each[0] not in set(string.hexdigits) or each[1] not in set(string.hexdigits):
+    #         return False
+            
+        # if '9' < each[0] < '0':
+        #     return False    
+        # elif each[0] < 'A' or each[0] > 'F':
+        #     return False
+        # if '9' < each[1] < '0':
+        #     return False
+        # elif each[1] < 'A' or each[1] > 'F':
+        #     return False
+        
+    #return True
+
+"""
+passes all sample, no hidden
+"""
