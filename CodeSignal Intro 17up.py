@@ -440,3 +440,26 @@ def firstDigit(inputString):
     for i in inputString:
         if '0' <= i <= '9':
             return i
+
+""" 
+Given array of integers, find the maximal possible sum of some of its k consecutive elements.
+
+Example
+
+For inputArray = [2, 3, 5, 1, 6] and k = 2, the output should be
+arrayMaxConsecutiveSum(inputArray, k) = 8.
+All possible sums of 2 consecutive elements are:
+
+2 + 3 = 5;
+3 + 5 = 8;
+5 + 1 = 6;
+1 + 6 = 7.
+Thus, the answer is 8.
+"""
+def arrayMaxConsecutiveSum(inputArray, k):
+    ans = temp = sum(inputArray[:k]) #sum a slice
+    for i in range(len(inputArray)-k):
+        temp += inputArray[i+k] - inputArray[i] # move one in from the back and one out from the front
+        if temp > ans:
+            ans = temp
+    return ans
