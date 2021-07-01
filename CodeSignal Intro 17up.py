@@ -2,7 +2,9 @@
 
 """
 
-You are given an array of integers. On each move you are allowed to increase exactly one of its element by one. Find the minimal number of moves required to obtain a strictly increasing sequence from the input.
+You are given an array of integers. On each move you are allowed to increase exactly
+ one of its element by one. Find the minimal number of moves required to obtain a 
+ strictly increasing sequence from the input.
 
 Example
 
@@ -58,21 +60,27 @@ def palindromeRearranging(inputString):
 """ 
 Call two arms equally strong if the heaviest weights they each are able to lift are equal.
 
-Call two people equally strong if their strongest arms are equally strong (the strongest arm can be both the right and the left), and so are their weakest arms.
+Call two people equally strong if their strongest arms are equally strong (the strongest 
+arm can be both the right and the left), and so are their weakest arms.
 
-Given your and your friend's arms' lifting capabilities find out if you two are equally strong.
+Given your and your friend's arms' lifting capabilities find out if you two are equally 
+strong.
 
 Example
 
-For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output should be
+For yourLeft = 10, yourRight = 15, friendsLeft = 15, and friendsRight = 10, the output 
+should be
 areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
-For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output should be
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 10, the output
+ should be
 areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = true;
-For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output should be
+For yourLeft = 15, yourRight = 10, friendsLeft = 15, and friendsRight = 9, the output
+ should be
 areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight) = false.
 """
 def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
-    if ((yourLeft == friendsLeft) and (yourRight == friendsRight)) or ((yourLeft == friendsRight) and (yourRight == friendsLeft)):
+    if ((yourLeft == friendsLeft) and (yourRight == friendsRight)) \
+        or ((yourLeft == friendsRight) and (yourRight == friendsLeft)):
         return True
     return False
 
@@ -80,7 +88,8 @@ def areEquallyStrong(yourLeft, yourRight, friendsLeft, friendsRight):
 
 ## arrayMaximalAdjacentDifference
 
-Given an array of integers, find the maximal absolute difference between any two of its adjacent elements.
+Given an array of integers, find the maximal absolute difference between any two of its 
+adjacent elements.
 
 Example
 
@@ -99,7 +108,10 @@ def arrayMaximalAdjacentDifference(inputArray):
 ## isIPv4Address
 
 
-An IP address is a numerical label assigned to each device (e.g., computer, printer) participating in a computer network that uses the Internet Protocol for communication. There are two versions of the Internet protocol, and thus two versions of addresses. One of them is the IPv4 address.
+An IP address is a numerical label assigned to each device (e.g., computer, printer) 
+participating in a computer network that uses the Internet Protocol for communication.
+ There are two versions of the Internet protocol, and thus two versions of addresses.
+  One of them is the IPv4 address.
 
 Given a string, find out if it satisfies the IPv4 address naming rules.
 
@@ -120,20 +132,20 @@ There is no first number.
 """
 
 
-    def isIPv4Address(inputString):
-        l=inputString.split('.')
-        if len(l)!=4:
+def isIPv4Address(inputString):
+    l=inputString.split('.')
+    if len(l)!=4:
+        return False
+    for i in range(len(l)):
+        if l[i]=='':
             return False
-        for i in range(len(l)):
-            if l[i]=='':
-                return False
-            if l[i].isdecimal()==False:
-                return False
-            if l[i]!=str(int(l[i])):
-                return False
-            if int(l[i])>255:
-                return False
-        return True
+        if l[i].isdecimal()==False:
+            return False
+        if l[i]!=str(int(l[i])):
+            return False
+        if int(l[i])>255:
+            return False
+    return True
 
 
 """ 
@@ -141,9 +153,11 @@ There is no first number.
 ## avoidObstacles
 
 
-You are given an array of integers representing coordinates of obstacles situated on a straight line.
+You are given an array of integers representing coordinates of obstacles situated on a 
+straight line.
 
-Assume that you are jumping from the point with coordinate 0 to the right. You are allowed only to make jumps of the same length represented by some integer.
+Assume that you are jumping from the point with coordinate 0 to the right. You are 
+allowed only to make jumps of the same length represented by some integer.
 
 Find the minimal length of the jump enough to avoid all the obstacles.
 
@@ -165,9 +179,14 @@ def avoidObstacles(inputArray):
 """ 
 
 ## boxBlur
-Last night you partied a little too hard. Now there's a black and white photo of you that's about to go viral! You can't let this ruin your reputation, so you want to apply the box blur algorithm to the photo to hide its content.
+Last night you partied a little too hard. Now there's a black and white photo of you
+that's about to go viral! You can't let this ruin your reputation, so you want to 
+apply the box blur algorithm to the photo to hide its content.
 
-The pixels in the input image are represented as integers. The algorithm distorts the input image in the following way: Every pixel x in the output image has a value equal to the average value of the pixel values from the 3 × 3 square that has its center at x, including x itself. All the pixels on the border of x are then removed.
+The pixels in the input image are represented as integers. The algorithm distorts the
+input image in the following way: Every pixel x in the output image has a value equal 
+to the average value of the pixel values from the 3 × 3 square that has its center at 
+x, including x itself. All the pixels on the border of x are then removed.
 
 Return the blurred image as an integer, with the fractions rounded down.
 
@@ -205,14 +224,18 @@ def boxBlur(image):
     for i in range(len(image)-2):
         result.append([])
         for j in range(len(image[0])-2):
-            result[i].append(sum(image[i][j:j+3] + image[i+1][j:j+3] + image[i+2][j:j+3])/9//1)
+            result[i].append(sum(image[i][j:j+3] + image[i+1][j:j+3] + \
+            image[i+2][j:j+3])/9//1)
     return result
 
 """
 
 ## minesweeper
 
-    In the popular Minesweeper game you have a board with some mines and those cells that don't contain a mine have a number in it that indicates the total number of mines in the neighboring cells. Starting off with some arrangement of mines we want to create a Minesweeper game setup.
+    In the popular Minesweeper game you have a board with some mines and those 
+    cells that don't contain a mine have a number in it that indicates the total 
+    number of mines in the neighboring cells. Starting off with some arrangement
+     of mines we want to create a Minesweeper game setup.
 
 Example
 
@@ -229,24 +252,31 @@ minesweeper(matrix) = [[1, 2, 1],
 """
 
 def minesweeper(M):
-    A =[[0]*(len(M[0])+2)] + [[0]+x+[0] for x in M] + [[0]*(len(M[0])+2)] #creates padding of zeros 
+    A =[[0]*(len(M[0])+2)] + [[0]+x+[0] for x in M] + [[0]*(len(M[0])+2)] 
+    #creates padding of zeros 
     for i in range(len(M)):
         for j in range(len(M[0])):
-            M[i][j] = (A[i+0][j] + A[i+0][j+1] + A[i+0][j+2] + # replaces each cell in M with number
-                       A[i+1][j] +      0      + A[i+1][j+2] + # of neighboring mines (without index
-                       A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] ) # going out of range)
+            M[i][j] = (A[i+0][j] + A[i+0][j+1] + A[i+0][j+2] + 
+            
+                       A[i+1][j] +      0      + A[i+1][j+2] + 
+                       
+                       A[i+2][j] + A[i+2][j+1] + A[i+2][j+2] ) 
+                       # replaces each cell in M with number
+                       # of neighboring mines (without index
+                       # going out of range)
     return M
 
 """
 
 ## arrayReplace
 
-Given an array of integers, replace all the occurrences of elemToReplace with substitutionElem.
+Given an array of integers, replace all the occurrences of elemToReplace with 
+substitutionElem.
 
 Example
 
-For inputArray = [1, 2, 1], elemToReplace = 1, and substitutionElem = 3, the output should be
-arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3].
+For inputArray = [1, 2, 1], elemToReplace = 1, and substitutionElem = 3, the 
+output should be arrayReplace(inputArray, elemToReplace, substitutionElem) = [3, 2, 3].
 
 """
 
@@ -271,9 +301,10 @@ def evenDigitsOnly(n):
     s = str(n)
     return all([int(i) % 2 == 0 for i in s])
 
-    """variableName
+"""variableName
 
-    Correct variable names consist only of English letters, digits and underscores and they can't start with a digit.
+    Correct variable names consist only of English letters, digits and underscores and 
+    they can't start with a digit.
 
 Check if the given string is a correct variable name.
 
@@ -295,10 +326,11 @@ def variableName(name):
         return False
     return True
     
- """
+"""
  ## chessBoardCellColor
 
-Given two cells on the standard chess board, determine whether they have the same color or not.
+Given two cells on the standard chess board, determine whether they have the same color or 
+not.
 
 Example
 
@@ -311,9 +343,12 @@ def chessBoardCellColor(cell1, cell2):
 """
     ##circleOfNumbers
 
-    Consider integer numbers from 0 to n - 1 written down along the circle in such a way that the distance between any two neighboring numbers is equal (note that 0 and n - 1 are neighboring, too).
+    Consider integer numbers from 0 to n - 1 written down along the circle in such a way 
+    that the distance between any two neighboring numbers is equal (note that 0 and n - 1
+     are neighboring, too).
 
-Given n and firstNumber, find the number which is written in the radially opposite position to firstNumber.
+Given n and firstNumber, find the number which is written in the radially opposite position 
+to firstNumber.
 
 Example
 
@@ -327,17 +362,21 @@ def circleOfNumbers(n, firstNumber):
     if firstNumber < n/2:
         return firstNumber+ n/2
     return firstNumber- n/2
-    """
+"""
     ## depositProfit
 
-    You have deposited a specific amount of money into your bank account. Each year your balance increases at the same growth rate. With the assumption that you don't make any additional deposits, find out how long it would take for your balance to pass a specific threshold.
+    You have deposited a specific amount of money into your bank account. Each year your 
+    balance increases at the same growth rate. With the assumption that you don't make 
+    any additional deposits, find out how long it would take for your balance to pass a 
+    specific threshold.
 
 Example
 
 For deposit = 100, rate = 20, and threshold = 170, the output should be
 depositProfit(deposit, rate, threshold) = 3.
 
-Each year the amount of money in your account increases by 20%. So throughout the years, your balance would be:
+Each year the amount of money in your account increases by 20%. So throughout the years, 
+your balance would be:
 
 year 0: 100;
 year 1: 120;
@@ -355,7 +394,9 @@ def depositProfit(deposit, rate, threshold):
 """ 
 ## absoluteValuesSumMinimization
 
-Given a sorted array of integers a, your task is to determine which element of a is closest to all other values of a. In other words, find the element x in a, which minimizes the following sum:
+Given a sorted array of integers a, your task is to determine which element of a is 
+closest to all other values of a. In other words, find the element x in a, which 
+minimizes the following sum:
 
 abs(a[0] - x) + abs(a[1] - x) + ... + abs(a[a.length - 1] - x)
 (where abs denotes the absolute value)
@@ -442,7 +483,8 @@ def firstDigit(inputString):
             return i
 
 """ 
-Given array of integers, find the maximal possible sum of some of its k consecutive elements.
+Given array of integers, find the maximal possible sum of some of its k consecutive
+elements.
 
 Example
 
@@ -459,15 +501,20 @@ Thus, the answer is 8.
 def arrayMaxConsecutiveSum(inputArray, k):
     ans = temp = sum(inputArray[:k]) #sum a slice
     for i in range(len(inputArray)-k):
-        temp += inputArray[i+k] - inputArray[i] # move one in from the back and one out from the front
+        temp += inputArray[i+k] - inputArray[i] # move 1 in from back and 1 out from front
         if temp > ans:
             ans = temp
     return ans
 
 """ 
-Caring for a plant can be hard work, but since you tend to it regularly, you have a plant that grows consistently. Each day, its height increases by a fixed amount represented by the integer upSpeed. But due to lack of sunlight, the plant decreases in height every night, by an amount represented by downSpeed.
+Caring for a plant can be hard work, but since you tend to it regularly, you have a plant 
+that grows consistently. Each day, its height increases by a fixed amount represented by 
+the integer upSpeed. But due to lack of sunlight, the plant decreases in height every 
+night, by an amount represented by downSpeed.
 
-Since you grew the plant from a seed, it started at height 0 initially. Given an integer desiredHeight, your task is to find how many days it'll take for the plant to reach this height.
+Since you grew the plant from a seed, it started at height 0 initially. Given an integer 
+desiredHeight, your task is to find how many days it'll take for the plant to reach this
+height.
 
 Example
 
@@ -499,7 +546,8 @@ def growingPlant(upSpeed, downSpeed, desiredHeight):
         h -= downSpeed
 
 """ 
-Let's define digit degree of some positive integer as the number of times we need to replace this number with the sum of its digits until we get to a one digit number.
+Let's define digit degree of some positive integer as the number of times we need to 
+]replace this number with the sum of its digits until we get to a one digit number.
 
 Given an integer, find its digit degree.
 
@@ -525,7 +573,8 @@ def digitDegree(n):
 
 """ 
 *
-Given a string, find the shortest possible string which can be achieved by adding characters to the end of initial string to make it a palindrome.
+Given a string, find the shortest possible string which can be achieved by adding 
+characters to the end of initial string to make it a palindrome.
 
 Example
 
@@ -593,7 +642,8 @@ passes all sample, no hidden
 """
 
 """
-Given a rectangular matrix containing only digits, calculate the number of different 2 × 2 squares in it.
+Given a rectangular matrix containing only digits, calculate the number of 
+different 2 × 2 squares in it.
 
 Example
 
