@@ -30,3 +30,10 @@ def mostFrequentDigitSum(n):
             if sums_list[i] > max_sum:
                 max_sum = sums_list[i] #assign highest sum value to return
     return max_sum
+
+
+# def mostFrequentDigitSum(n):
+#     return 18 if n>=999 else 9 if n>=9 else n
+
+
+# top answer on CodeSignal... these guys had to discover this math trick after finding the solutions first. 
