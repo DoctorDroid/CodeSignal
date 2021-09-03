@@ -13,3 +13,13 @@ def minimalNumberOfCoins(coins, price):
             price = price % coins[i]
         i -= 1
     return num_coins
+
+## Recursive solution by Charlie Lu
+
+def minimalNumberOfCoins(coins, price):
+    
+    if len(coins) == 1:
+        return price // coins[0]
+    last = coins.pop()
+    num_last = price // last
+    return num_last + minimalNumberOfCoins(coins, price - num_last * last)
